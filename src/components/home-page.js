@@ -147,9 +147,22 @@ class HomePage extends Component {
                             </textarea>*/}
                         </div>
 
+                        {/*
+                            <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label className="btn btn-secondary">
+                                    <input type="radio" name="options" id="option1" autoComplete="off"/> Active
+                                </label>
+                                <label className="btn btn-secondary">
+                                    <input type="radio" name="options" id="option2" autoComplete="off"/> Radio
+                                </label>
+                                <label className="btn btn-secondary">
+                                    <input type="radio" name="options" id="option3" autoComplete="off"/> Radio
+                                </label>
+                            </div>
+                        */}
 
 
-                        <input type="submit" className="btn btn-outline-primary" value="Click me" />
+                        <input type="submit" className="btn btn-outline-primary" value="Add Item" />
                         {/*<button type="button" onClick={this.buttonClicked.bind(this)}>Click me</button>*/}
                     </form>
                 </div>
