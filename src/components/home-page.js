@@ -71,6 +71,7 @@ class HomePage extends Component {
             nameInput: ''
         })
 
+        this.txtNameInput.focus()
         event.preventDefault()
     }
 
@@ -108,29 +109,51 @@ class HomePage extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="pt-2 people-list">
-                    { this.renderItemList() }
+            <div className="row">
+                <div className=" col-md-6 col-xl-4">
+                    <div className="pt-2 people-list">
+                        { this.renderItemList() }
+                    </div>
                 </div>
+                <div className=" col-md-6 col-xl-4">
 
-                Name:
-                    <input type="text"
-                           value={this.state.nameInput}
-                           onChange={this.handleNameChange.bind(this)}
+                    <form onSubmit={this.handleSubmit}>
 
-                        />
+                        <div className="form-group">
+                            <label >Name</label>
+                            <input type="text"
+                                   value={this.state.nameInput}
+                                   onChange={this.handleNameChange.bind(this)}
+                                   className="form-control"
+                                   placeholder="ex. beanie cap"
+                                   ref={(input) => { this.txtNameInput = input; }}
+                                />
+                        </div>
 
-                    <br />
-                    Description:
-                <input type="text"
-                       value={this.state.descriptionInput}
-                       onChange={this.handleDescriptionChange.bind(this)}
+                        <div className="form-group">
+                            <label >Description</label>
+                            <input type="text"
+                                   value={this.state.descriptionInput}
+                                   onChange={this.handleDescriptionChange.bind(this)}
+                                   className="form-control"
+                                   placeholder="ex. keeps my head warm"
+                                />
+                            {/*<textarea
+                                className="form-control"
+                                rows="3"
+                                value={this.state.descriptionInput}
+                                onChange={this.handleDescriptionChange.bind(this)}
+                                placeholder="ex. keeps my head warm">
+                            </textarea>*/}
+                        </div>
 
-                    />
 
-                <input type="submit" value="Click me" />
-                {/*<button type="button" onClick={this.buttonClicked.bind(this)}>Click me</button>*/}
-            </form>
+
+                        <input type="submit" className="btn btn-outline-primary" value="Click me" />
+                        {/*<button type="button" onClick={this.buttonClicked.bind(this)}>Click me</button>*/}
+                    </form>
+                </div>
+            </div>
         )
 
     }
