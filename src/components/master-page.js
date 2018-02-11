@@ -15,7 +15,7 @@ import NavHeader from '../components/nav-header'
 import HomePage from '../components/home-page'
 import AboutPage from '../components/about-page'
 import TopicsPage from '../components/topics-page'
-
+import AuthorPage from '../components/author-page'
 
 /*
  *         <h2>Topics</h2>
@@ -62,6 +62,7 @@ const MasterPage = () => (
                 <Switch>
                     <Route path="/about" component={AboutPage}/>
                     <Route path="/topics" component={TopicsPage}/>
+                    <Route path="/authors" component={AuthorPage}/>
                     <Route path="/" component={HomePage}/>
                 </Switch>
             </div>
