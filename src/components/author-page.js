@@ -37,7 +37,7 @@ class AuthorPage extends Component {
 
           <div className="row p-4">
 
-            <div className="col-sm-auto card text-white bg-dark" style={{width: '16rem'}} >
+            <div className=" card text-white bg-dark" style={{width: '17rem'}} >
               <img alt='' className="card-img-top" src={author.thumbnailImg} />
               <div className="card-body">
                 <h5 className="card-title">{ author.name }</h5>
