@@ -25,7 +25,8 @@ export function getAuthors(){
           authors.push({
             id: author.id.value,
             name: author.name.first + ' ' + author.name.last,
-            email: author.email
+            email: author.email,
+            thumbnailImg: author.picture.large
           })
         })
         //const rPostsLength = response.data.data.children.length

@@ -35,8 +35,23 @@ class AuthorPage extends Component {
 
         <div key={author.id + author.name} style={{marginBottom: '3vh'}}>
 
-          <h5>{ author.name}</h5>
-          {author.email}
+          <div className="row p-4">
+
+            <div className="col-sm-auto card text-white bg-dark" style={{width: '16rem'}} >
+              <img alt='' className="card-img-top" src={author.thumbnailImg} />
+              <div className="card-body">
+                <h5 className="card-title">{ author.name }</h5>
+                <p className="card-text">{author.email}</p>
+
+              </div>
+            </div>
+
+            <div className="col-sm-8 p-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed volutpat quam, vel lobortis erat. Nulla placerat enim in lectus tristique rhoncus. Fusce id mi eget leo viverra mattis in eget velit. Donec ut nibh et erat posuere efficitur.
+            </div>
+          </div>
+
+
 
         </div>
 
@@ -46,9 +61,9 @@ class AuthorPage extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="">
 
-        <div className=" col-md-6 col-xl-4">
+        <div className="">
 
           { this.renderAuthors() }
         </div>
