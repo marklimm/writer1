@@ -76,14 +76,5 @@ class TopicsPage extends Component {
 }
 
 
-
-
-function mapStateToProps(state){
-    //return { authenticated: state.auth.authenticated}
-    return {}
-}
-
-//export default connect(mapStateToProps)(TopicsPageView)
-
 export default TopicsPage
 

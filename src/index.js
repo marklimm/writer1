@@ -14,10 +14,7 @@ import reducers from './reducers';
 import { defineCustomFunctions } from './util/js-overrides'
 
 //  routing is defined in MasterPage with react-router-dom v4
-import MasterPage from './components/master-page'
-
-
-//import './index.css';
+import MasterPage from './pages/master-page'
 
 
 //import App from './App';

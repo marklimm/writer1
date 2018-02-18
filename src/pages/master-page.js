@@ -12,10 +12,10 @@ import logo from '../logo.svg';
 import '../css/App.css';
 
 import NavHeader from '../components/nav-header'
-import HomePage from '../components/home-page'
-import AboutPage from '../components/about-page'
-import TopicsPage from '../components/topics-page'
-import AuthorPage from '../components/author-page'
+import HomePage from './home-page'
+import AboutPage from './about-page'
+import TopicsPage from './topics-page'
+import AuthorPage from './author-page'
 
 /*
  *         <h2>Topics</h2>

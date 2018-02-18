@@ -12,7 +12,6 @@ class AuthorPage extends Component {
 
     };
 
-    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount(){

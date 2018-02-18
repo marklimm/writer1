@@ -18,16 +18,11 @@ class NavHeader extends Component {
     this.state = {
 
     };
-    //this.onChange = (editorState) => this.setState({editorState});
+
   }
 
   componentWillMount(){
     console.log('nav-header componentWillMount')
-    //if(this.props.authenticated){
-    //
-    //    //  redirect them back to the / route
-    //    this.context.router.push('/dashboard')
-    //}
 
   }
 
@@ -37,6 +32,11 @@ class NavHeader extends Component {
 
   }
 
+  /*
+  *             <li className="nav-item">
+   <Link className="nav-link" to="/topics/and-more">Topics and more</Link>
+   </li>
+  * */
 
   render() {
     return (
@@ -69,9 +69,7 @@ class NavHeader extends Component {
               <Link className="nav-link" to="/topics/with-extra-parameter">Topics with extra param</Link>
             </li>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/topics/and-more">Topics and more</Link>
-            </li>
+
 
           </ul>
         </div>
