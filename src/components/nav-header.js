@@ -13,7 +13,7 @@ class NavHeader extends Component {
   //}
 
   constructor(props) {
-    console.log('nav-header constructor')
+    //console.log('nav-header constructor')
     super(props);
     this.state = {
 
@@ -22,7 +22,7 @@ class NavHeader extends Component {
   }
 
   componentWillMount(){
-    console.log('nav-header componentWillMount')
+    //console.log('nav-header componentWillMount')
 
   }
 

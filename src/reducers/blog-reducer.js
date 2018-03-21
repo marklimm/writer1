@@ -6,22 +6,26 @@ const INITIAL_STATE = {
   '1': {
     blogId: 1,
     name: 'First Blog Test',
-    description: 'description of first blog test'
+    description: 'description of first blog test',
+    entries: {}
   },
   '2': {
     blogId: 2,
     name: 'Super cool newsletter',
-    description: 'description of super cool newsletter'
+    description: 'description of super cool newsletter',
+    entries: {}
   },
   '3': {
     blogId: 3,
     name: 'Third blog',
-    description: 'description of third blog'
+    description: 'description of third blog',
+    entries: {}
   }
 };
 
 
-window.localStorage.setItem('blogEntries', {
+
+window.localStorage.setItem('blogEntries', JSON.stringify({
   '1': {
     '001': {
       text: 'lorem ipsum test blog entry',
@@ -41,7 +45,7 @@ window.localStorage.setItem('blogEntries', {
   '3': {
 
   }
-})
+}))
 
 
 export default (state = INITIAL_STATE, action) => {
@@ -75,8 +79,27 @@ export default (state = INITIAL_STATE, action) => {
     //  }
 
     case actions.GET_BLOGS:
-      console.log('window.localStorage.blogEntries', window.localStorage.getItem('blogEntries'))
+      //const blogEntryData = JSON.parse(window.localStorage.getItem('blogEntries'))
+      //console.log('window.localStorage.blogEntries', blogEntryData)
       return state
+
+
+    case actions.GET_BLOG:
+      //  for now, this consists of retrieving the blog entries for the blog in question and adding them to state
+
+      const blogEntryData = JSON.parse(window.localStorage.getItem('blogEntries'))
+      const entriesForBlogId = blogEntryData[action.payload.blogId]
+      
+      return {
+        ...state,
+        [action.payload.blogId]: Object.assign({}, state[action.payload.blogId], {
+          entries: entriesForBlogId
+        })
+      }
+
+
+
+
 
 
 

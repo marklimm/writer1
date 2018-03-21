@@ -15,7 +15,7 @@ class HomePage extends Component {
     //}
 
     constructor(props) {
-        console.log('home-page constructor')
+        //console.log('home-page constructor')
         super(props);
         this.state = {
             //editorState: EditorState.createEmpty(),
@@ -29,7 +29,7 @@ class HomePage extends Component {
     }
 
     componentWillMount(){
-        console.log('home-page componentWillMount')
+        //console.log('home-page componentWillMount')
         //if(this.props.authenticated){
         //
         //    //  redirect them back to the / route

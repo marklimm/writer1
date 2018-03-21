@@ -15,7 +15,7 @@ class BlogsList extends Component {
   //}
 
   constructor(props) {
-    console.log('blogs-list constructor')
+    //console.log('blogs-list constructor')
     super(props);
     this.state = {
     };
@@ -24,7 +24,7 @@ class BlogsList extends Component {
   }
 
   componentWillMount(){
-    console.log('blogs-list componentWillMount')
+    //console.log('blogs-list componentWillMount')
 
     //  call to retrieve the list of blogs
     this.props.getBlogs()

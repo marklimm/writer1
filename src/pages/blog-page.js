@@ -12,21 +12,21 @@ class BlogPage extends Component {
   //}
 
   constructor(props) {
-    console.log('blog constructor')
+    //console.log('blog constructor')
     super(props);
     this.state = {}
     //this.onChange = (editorState) => this.setState({editorState});
   }
 
   componentWillMount(){
-
+    console.log('blog componentWillMount')
     //if(this.props.authenticated){
     //
     //    //  redirect them back to the / route
     //    this.context.router.push('/dashboard')
     //}
 
-    //this.props.getBlog(this.props.match.params.blogId)
+    this.props.getBlog(this.props.match.params.blogId)
   }
 
   render() {
