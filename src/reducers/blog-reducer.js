@@ -21,6 +21,29 @@ const INITIAL_STATE = {
 };
 
 
+window.localStorage.setItem('blogEntries', {
+  '1': {
+    '001': {
+      text: 'lorem ipsum test blog entry',
+      dateCreated: Date.now()
+    }
+  },
+  '2': {
+    '201': {
+      text: 'entry 1',
+      dateCreated: Date.now()
+    },
+    '202': {
+      text: 'entry 2 - george washington',
+      dateCreated: Date.now()
+    }
+  },
+  '3': {
+
+  }
+})
+
+
 export default (state = INITIAL_STATE, action) => {
 
   if (!action || !action.type) {
@@ -52,6 +75,7 @@ export default (state = INITIAL_STATE, action) => {
     //  }
 
     case actions.GET_BLOGS:
+      console.log('window.localStorage.blogEntries', window.localStorage.getItem('blogEntries'))
       return state
 
 

@@ -14,7 +14,7 @@ import '../css/App.css';
 import NavHeader from '../components/nav-header'
 import HomePage from './home-page'
 import AboutPage from './about-page'
-import TopicsPage from './topics-page'
+//import TopicsPage from './topics-page'
 import AuthorPage from './author-page'
 import BlogPage from './blog-page'
 
@@ -45,7 +45,7 @@ import BlogPage from './blog-page'
 //
 //    </div>
 //)
-
+//<Route path="/topics" component={TopicsPage}/>
 
 const MasterPage = () => (
     <Router>
@@ -62,7 +62,7 @@ const MasterPage = () => (
 
                 <Switch>
                     <Route path="/about" component={AboutPage}/>
-                    <Route path="/topics" component={TopicsPage}/>
+
                     <Route path="/authors" component={AuthorPage}/>
                     <Route path="/blog/:blogId" component={BlogPage}/>
                     <Route path="/" component={HomePage}/>

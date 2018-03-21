@@ -21,7 +21,7 @@ export function getAuthors(){
 
         const authorResults = response.data.results
 
-        authorResults.map((author) => {
+        authorResults.forEach((author) => {
           authors.push({
             id: author.id.value,
             name: author.name.first + ' ' + author.name.last,
