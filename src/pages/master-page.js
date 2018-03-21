@@ -16,6 +16,7 @@ import HomePage from './home-page'
 import AboutPage from './about-page'
 import TopicsPage from './topics-page'
 import AuthorPage from './author-page'
+import BlogPage from './blog-page'
 
 /*
  *         <h2>Topics</h2>
@@ -63,6 +64,7 @@ const MasterPage = () => (
                     <Route path="/about" component={AboutPage}/>
                     <Route path="/topics" component={TopicsPage}/>
                     <Route path="/authors" component={AuthorPage}/>
+                    <Route path="/blog/:blogId" component={BlogPage}/>
                     <Route path="/" component={HomePage}/>
                 </Switch>
             </div>

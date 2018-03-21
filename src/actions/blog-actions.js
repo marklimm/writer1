@@ -1,6 +1,7 @@
 
 
 export const GET_BLOGS = 'GET_BLOGS'
+export const GET_BLOG = 'GET_BLOG'
 
 
 
@@ -16,6 +17,18 @@ export function getBlogs(){
   }
 }
 
+export function getBlog(id){
+
+  return (dispatch, getState) => {
+
+    dispatch({
+      type: GET_BLOG,
+      payload: {
+        blogId: id
+      }
+    })
+  }
+}
 
 
 export default {

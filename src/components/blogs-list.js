@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import {
+  Link
+} from 'react-router-dom'
 
 import { getBlogs } from '../actions/blog-actions'
 
@@ -51,13 +54,9 @@ class BlogsList extends Component {
       return (
 
         <div key={blog.blogId} style={{marginBottom: '3vh'}}>
-
-          <dt>
-            <strong>{blog.name}</strong>
-          </dt>
-          <dd>
-            {blog.description}
-          </dd>
+          <Link to={`/blog/${blog.blogId}`}>{blog.name}</Link>
+          <br />
+          {blog.description}
 
         </div>
 

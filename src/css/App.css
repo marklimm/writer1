@@ -35,6 +35,10 @@ body {
     font-family: sans-serif;
 }
 
+a, a:hover {
+    text-decoration: none;
+}
+
 .standard-spacing {
     text-align: left;
     padding: 3em;

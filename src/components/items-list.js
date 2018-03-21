@@ -19,7 +19,9 @@ class ItemsList extends Component {
       nameInput: '',
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
   }
 
   componentWillMount(){
@@ -82,16 +84,13 @@ class ItemsList extends Component {
 
     return itemsArr.map((item) => {
 
+      //style={{marginBottom: '3vh'}}
       return (
 
-        <div key={item.itemId} style={{marginBottom: '3vh'}}>
+        <div key={item.itemId} className='list-group-item'>
 
-          <dt>
-            <strong>{item.name}</strong>
-          </dt>
-          <dd>
-            {item.description}
-          </dd>
+          <h4>{item.name}</h4>
+          <p>{item.description}</p>
 
         </div>
 
@@ -103,7 +102,7 @@ class ItemsList extends Component {
     return (
       <div className="row">
         <div className=" col-md-6 col-xl-4">
-          <div className="pt-2 standard-spacing">
+          <div className="pt-2 standard-spacing list-group">
             { this.renderItemList() }
           </div>
         </div>
@@ -115,7 +114,7 @@ class ItemsList extends Component {
               <label >Name</label>
               <input type="text"
                      value={this.state.nameInput}
-                     onChange={this.handleNameChange.bind(this)}
+                     onChange={this.handleNameChange}
                      className="form-control"
                      placeholder="ex. beanie cap"
                      ref={(input) => { this.txtNameInput = input; }}
@@ -126,7 +125,7 @@ class ItemsList extends Component {
               <label >Description</label>
               <input type="text"
                      value={this.state.descriptionInput}
-                     onChange={this.handleDescriptionChange.bind(this)}
+                     onChange={this.handleDescriptionChange}
                      className="form-control"
                      placeholder="ex. keeps my head warm"
                 />
