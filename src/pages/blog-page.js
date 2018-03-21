@@ -29,18 +29,49 @@ class BlogPage extends Component {
     this.props.getBlog(this.props.match.params.blogId)
   }
 
+
+  renderBlogEntries(blogEntries) {
+
+    const entryKeys = Object.keys(blogEntries)
+
+    if (!blogEntries || entryKeys.length === 0) {
+      return (
+        <div>No blog posts yet!</div>
+      )
+    }
+
+
+    return entryKeys.map((entryKey) => {
+
+      const blogEntry = blogEntries[entryKey]
+
+      return (
+
+        <div key={entryKey} style={{marginBottom: '3vh'}}>
+
+          <h5>{blogEntry.title}</h5>
+          {blogEntry.text}
+          <br />
+          <small>{blogEntry.dateCreated}</small>
+        </div>
+
+      )
+    })
+  }
+
+
   render() {
 
     const blog = this.props.blog[this.props.match.params.blogId]
 
     return (
       <div>
-        <h4>Blog Page</h4>
+        <h1 className="display-4">{blog.name}</h1>
+        <p className="lead"><em>{blog.description}</em></p>
 
-        <p>blogId: {this.props.match.params.blogId}</p>
-        <h2>{blog.name}</h2>
-        <h6>{blog.description}</h6>
-
+        <div className="">
+          { this.renderBlogEntries(blog.entries) }
+        </div>
       </div>
     )
 

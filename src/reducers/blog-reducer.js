@@ -11,8 +11,8 @@ const INITIAL_STATE = {
   },
   '2': {
     blogId: 2,
-    name: 'Super cool newsletter',
-    description: 'description of super cool newsletter',
+    name: 'Riker rants',
+    description: 'The title says it all',
     entries: {}
   },
   '3': {
@@ -29,17 +29,24 @@ window.localStorage.setItem('blogEntries', JSON.stringify({
   '1': {
     '001': {
       text: 'lorem ipsum test blog entry',
-      dateCreated: Date.now()
+      dateCreated: new Date().toDateString()
     }
   },
   '2': {
     '201': {
-      text: 'entry 1',
-      dateCreated: Date.now()
+      title: 'Riker Rants 1',
+      text: 'Our neural pathways have become accustomed to your sensory input patterns. Computer, belay that order. The game’s not big enough unless it scares you a little. ',
+      dateCreated: new Date().toDateString()
     },
     '202': {
-      text: 'entry 2 - george washington',
-      dateCreated: Date.now()
+      title: 'Riker Rants 2',
+      text: 'When has justice ever been as simple as a rule book? What’s a knock-out like you doing in a computer-generated gin joint like this? Did you come here for something in particular or just general Riker-bashing?',
+      dateCreated: new Date().toDateString()
+    },
+    '203': {
+      title: 'Riker Rants 3',
+      text: 'Wouldn’t that bring about chaos? In all trust, there is the possibility for betrayal. I’ll be sure to note that in my log. The unexpected is our normal routine. ',
+      dateCreated: new Date().toDateString()
     }
   },
   '3': {
@@ -89,7 +96,7 @@ export default (state = INITIAL_STATE, action) => {
 
       const blogEntryData = JSON.parse(window.localStorage.getItem('blogEntries'))
       const entriesForBlogId = blogEntryData[action.payload.blogId]
-      
+
       return {
         ...state,
         [action.payload.blogId]: Object.assign({}, state[action.payload.blogId], {
