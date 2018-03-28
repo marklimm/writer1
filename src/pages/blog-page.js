@@ -33,11 +33,11 @@ class BlogPage extends Component {
   }
 
 
-  renderBlogEntries(blogEntries) {
+  renderBlogPosts(blogPosts) {
 
-    const entryKeys = Object.keys(blogEntries)
+    const entryKeys = Object.keys(blogPosts)
 
-    if (!blogEntries || entryKeys.length === 0) {
+    if (!blogPosts || entryKeys.length === 0) {
       return (
         <div>No blog posts yet!</div>
       )
@@ -46,7 +46,7 @@ class BlogPage extends Component {
 
     return entryKeys.map((entryKey) => {
 
-      const blogEntry = blogEntries[entryKey]
+      const blogEntry = blogPosts[entryKey]
 
       return (
 
@@ -73,7 +73,7 @@ class BlogPage extends Component {
         <p className="lead"><em>{blog.description}</em></p>
 
         <div className="">
-          { this.renderBlogEntries(blog.entries) }
+          { this.renderBlogPosts(blog.blogPosts) }
         </div>
 
         <Link to={`/blog/${blog.blogId}/new`}>Create new post</Link>

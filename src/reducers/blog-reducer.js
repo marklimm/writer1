@@ -37,20 +37,20 @@ export default (state = INITIAL_STATE, action) => {
       //return {
       //  ...state,
       //  [action.payload.blogId]: Object.assign({}, state[action.payload.blogId], {
-      //    entries: updatedPostsForBlogId
+      //    blogPosts: updatedPostsForBlogId
       //  })
       //}
 
 
     case actions.GET_BLOG:
-      //  for now, this consists of retrieving the blog entries for the blog in question and adding them to state
+      //  for now, this consists of retrieving the blog blogPosts for the blog in question and adding them to state
 
       postsForBlogId = blogData.getBlogPostsFromLocalStorage()[action.payload.blogId]
 
       return {
         ...state,
         [action.payload.blogId]: Object.assign({}, state[action.payload.blogId], {
-          entries: postsForBlogId
+          blogPosts: postsForBlogId
         })
       }
 

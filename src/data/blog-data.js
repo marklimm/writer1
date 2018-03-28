@@ -12,23 +12,23 @@ const initLocalStorage = () => {
       blogId: 1,
       name: 'First Blog Test',
       description: 'description of first blog test',
-      entries: {}
+      blogPosts: {}
     },
     '2': {
       blogId: 2,
       name: 'Riker rants',
       description: 'The title says it all',
-      entries: {}
+      blogPosts: {}
     },
     '3': {
       blogId: 3,
       name: 'Third blog',
       description: 'description of third blog',
-      entries: {}
+      blogPosts: {}
     }
   }))
 
-  window.localStorage.setItem('blogEntries', JSON.stringify({
+  window.localStorage.setItem('blogPosts', JSON.stringify({
     '1': {
       '1': {
         title: 'Generic test title',
@@ -59,8 +59,11 @@ const initLocalStorage = () => {
   }))
 }
 
-
-
+const wipeLocalStorage = () => {
+  window.localStorage.removeItem('blogs')
+  window.localStorage.removeItem('blogPosts')
+}
+//wipeLocalStorage()
 
 
 
@@ -76,19 +79,19 @@ export const getBlogsFromLocalStorage = () => {
 
 
 export const getBlogPostsFromLocalStorage = () => {
-  return JSON.parse(window.localStorage.getItem('blogEntries'))
+  return JSON.parse(window.localStorage.getItem('blogPosts'))
 }
 
 export const saveBlogPostsToLocalStorage = (blogId, updatedPostsForBlogId) => {
 
   const blogPostsFromLocalStorage = getBlogPostsFromLocalStorage()
 
-  const updatedBlogEntries = {
+  const updatedBlogPosts = {
     ...blogPostsFromLocalStorage,
     [blogId]: updatedPostsForBlogId
   }
 
-  localStorage.setItem('blogEntries', JSON.stringify(updatedBlogEntries))
+  localStorage.setItem('blogPosts', JSON.stringify(updatedBlogPosts))
 }
 
 
