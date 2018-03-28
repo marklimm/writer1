@@ -40,9 +40,15 @@ class BlogsList extends Component {
 
   renderBlogsList() {
 
+    if (!this.props.blog) {
+      return (
+        <div>No items to display</div>
+      )
+    }
+
     const blogsArr = Object.values(this.props.blog)
 
-    if (!this.props.blog || blogsArr.length === 0) {
+    if (blogsArr.length === 0) {
       return (
         <div>No items to display</div>
       )
