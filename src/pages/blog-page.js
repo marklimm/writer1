@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import {
+  Link
+} from 'react-router-dom'
 
 import { getBlog } from '../actions/blog-actions'
 
@@ -72,6 +75,9 @@ class BlogPage extends Component {
         <div className="">
           { this.renderBlogEntries(blog.entries) }
         </div>
+
+        <Link to={`/blog/${blog.blogId}/new`}>Create new post</Link>
+
       </div>
     )
 

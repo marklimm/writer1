@@ -43,3 +43,7 @@ a, a:hover {
     text-align: left;
     padding: 3em;
 }
+
+textarea {
+    width: 100%
+}
