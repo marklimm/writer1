@@ -18,6 +18,7 @@ import AboutPage from './about-page'
 import AuthorPage from './author-page'
 import BlogPage from './blog-page'
 import BlogPageNewPost from './blog-page-new-post'
+import BlogPageSettings from './blog-page-settings'
 
 /*
  *         <h2>Topics</h2>
@@ -66,6 +67,7 @@ const MasterPage = () => (
 
                     <Route path="/authors" component={AuthorPage}/>
                     <Route path="/blog/:blogId/new" component={BlogPageNewPost}/>
+                    <Route path="/blog/:blogId/settings" component={BlogPageSettings}/>
                     <Route path="/blog/:blogId" component={BlogPage}/>
 
                     <Route path="/" component={HomePage}/>
