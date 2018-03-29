@@ -1,3 +1,4 @@
+import moment from 'moment'
 import * as actions from '../actions/blog-actions'
 import * as blogData from '../data/blog-data'
 
@@ -27,7 +28,7 @@ export default (state = INITIAL_STATE, action) => {
           blogPostId: newId,
           title: action.payload.title,
           text: action.payload.text,
-          dateCreated: new Date().toDateString()
+          dateCreated: moment().format()
         }
       })
 

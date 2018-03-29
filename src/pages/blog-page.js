@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {
   Link
 } from 'react-router-dom'
+import moment from 'moment'
 
 import { getBlog } from '../actions/blog-actions'
 
@@ -37,10 +38,8 @@ class BlogPage extends Component {
 
     const blogPostValues = Object.values(blogPosts)
     blogPostValues.sort((a, b) => {
-      return a.dateCreated - b.dateCreated
+      return moment(a.dateCreated).isSameOrBefore(b.dateCreated)
     })
-
-    //const blogPostKeys = Object.keys(blogPosts)
 
     if (!blogPostValues || blogPostValues.length === 0) {
       return (
@@ -48,11 +47,7 @@ class BlogPage extends Component {
       )
     }
 
-
     return blogPostValues.map((blogPost) => {
-
-      //const blogEntry = blogPosts[entryKey]
-      var x = 5
 
       return (
 
@@ -61,7 +56,7 @@ class BlogPage extends Component {
           <h5>{blogPost.title}</h5>
           {blogPost.text}
           <br />
-          <small>{blogPost.dateCreated}</small>
+          <small>{moment(blogPost.dateCreated).format('MMMM Do YYYY, h:mm a')}</small>
         </div>
 
       )
