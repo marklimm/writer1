@@ -31,6 +31,7 @@ const initLocalStorage = () => {
   window.localStorage.setItem('blogPosts', JSON.stringify({
     '1': {
       '1': {
+        blogPostId: 1,
         title: 'Generic test title',
         text: 'lorem ipsum test blog entry',
         dateCreated: new Date().toDateString()
@@ -38,16 +39,19 @@ const initLocalStorage = () => {
     },
     '2': {
       '1': {
+        blogPostId: 1,
         title: 'Riker Rants 1',
         text: 'Our neural pathways have become accustomed to your sensory input patterns. Computer, belay that order. The game’s not big enough unless it scares you a little. ',
         dateCreated: new Date().toDateString()
       },
       '2': {
+        blogPostId: 2,
         title: 'Riker Rants 2',
         text: 'When has justice ever been as simple as a rule book? What’s a knock-out like you doing in a computer-generated gin joint like this? Did you come here for something in particular or just general Riker-bashing?',
         dateCreated: new Date().toDateString()
       },
       '3': {
+        blogPostId: 3,
         title: 'Riker Rants 3',
         text: 'Wouldn’t that bring about chaos? In all trust, there is the possibility for betrayal. I’ll be sure to note that in my log. The unexpected is our normal routine. ',
         dateCreated: new Date().toDateString()

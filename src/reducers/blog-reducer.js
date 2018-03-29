@@ -24,6 +24,7 @@ export default (state = INITIAL_STATE, action) => {
 
       const updatedPostsForBlogId = Object.assign({}, postsForBlogId, {
         [newId]: {
+          blogPostId: newId,
           title: action.payload.title,
           text: action.payload.text,
           dateCreated: new Date().toDateString()

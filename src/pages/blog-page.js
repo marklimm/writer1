@@ -35,27 +35,33 @@ class BlogPage extends Component {
 
   renderBlogPosts(blogPosts) {
 
-    const entryKeys = Object.keys(blogPosts)
+    const blogPostValues = Object.values(blogPosts)
+    blogPostValues.sort((a, b) => {
+      return a.dateCreated - b.dateCreated
+    })
 
-    if (!blogPosts || entryKeys.length === 0) {
+    //const blogPostKeys = Object.keys(blogPosts)
+
+    if (!blogPostValues || blogPostValues.length === 0) {
       return (
         <div>No blog posts yet!</div>
       )
     }
 
 
-    return entryKeys.map((entryKey) => {
+    return blogPostValues.map((blogPost) => {
 
-      const blogEntry = blogPosts[entryKey]
+      //const blogEntry = blogPosts[entryKey]
+      var x = 5
 
       return (
 
-        <div key={entryKey} style={{marginBottom: '3vh'}}>
+        <div key={blogPost.blogPostId} style={{marginBottom: '3vh'}}>
 
-          <h5>{blogEntry.title}</h5>
-          {blogEntry.text}
+          <h5>{blogPost.title}</h5>
+          {blogPost.text}
           <br />
-          <small>{blogEntry.dateCreated}</small>
+          <small>{blogPost.dateCreated}</small>
         </div>
 
       )
