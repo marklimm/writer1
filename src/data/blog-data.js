@@ -31,6 +31,7 @@ const initLocalStorage = () => {
     }
   }))
 
+
   window.localStorage.setItem('blogPosts', JSON.stringify({
     '1': {
       '1': {
@@ -84,6 +85,11 @@ export const getBlogsFromLocalStorage = () => {
   return JSON.parse(window.localStorage.getItem('blogs'))
 }
 
+export const getBlogFromLocalStorage = (blogId) => {
+
+  return getBlogsFromLocalStorage()[blogId]
+}
+
 
 export const getBlogPostsFromLocalStorage = () => {
   return JSON.parse(window.localStorage.getItem('blogPosts'))
@@ -102,3 +108,20 @@ export const saveBlogPostsToLocalStorage = (blogId, updatedPostsForBlogId) => {
 }
 
 
+export const saveBlogToLocalStorage = (blogId, { name, description }) => {
+  const blogsFromLocalStorage = getBlogsFromLocalStorage()
+  const blogFromLocalStorage = blogsFromLocalStorage[blogId]
+
+  const updatedBlog = {
+    ...blogFromLocalStorage,
+    name: name,
+    description: description
+  }
+
+  const updatedBlogs = {
+    ...blogsFromLocalStorage,
+    [blogId]: updatedBlog
+  }
+
+  localStorage.setItem('blogs', JSON.stringify(updatedBlogs))
+}

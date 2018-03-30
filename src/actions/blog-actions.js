@@ -3,6 +3,7 @@
 export const ADD_BLOG_POST = 'ADD_BLOG_POST'
 export const GET_BLOG = 'GET_BLOG'
 export const GET_BLOGS = 'GET_BLOGS'
+export const UPDATE_BLOG = 'UPDATE_BLOG'
 
 
 
@@ -43,6 +44,21 @@ export function getBlogs(){
     dispatch({
       type: GET_BLOGS,
       payload: {}
+    })
+  }
+}
+
+export function updateBlog(id, { name, description }){
+
+  return (dispatch, getState) => {
+
+    dispatch({
+      type: UPDATE_BLOG,
+      payload: {
+        blogId: id,
+        name: name,
+        description: description
+      }
     })
   }
 }

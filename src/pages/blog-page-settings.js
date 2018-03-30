@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {
   Redirect
 } from 'react-router-dom'
-import { getBlog } from '../actions/blog-actions'
+import { getBlog, updateBlog } from '../actions/blog-actions'
 
 class BlogPageSettings extends Component {
 //export default () => {
@@ -46,13 +46,11 @@ class BlogPageSettings extends Component {
   }
 
   handleSubmit(event) {
-    //console.log('new blog psot was submitted: ' + this.state.text);
-    //
-    //this.props.addBlogPost(this.props.match.params.blogId, this.state)
-    //
-    //this.setState({
-    //  redirectBackToBlog: true
-    //})
+    this.props.updateBlog(this.state.blogId, this.state)
+
+    this.setState({
+      redirectBackToBlog: true
+    })
 
     event.preventDefault();
   }
@@ -127,5 +125,5 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, { getBlog })(BlogPageSettings)
+export default connect(mapStateToProps, { getBlog, updateBlog })(BlogPageSettings)
 

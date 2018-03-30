@@ -12,6 +12,7 @@ export default (state = INITIAL_STATE, action) => {
   }
 
   let postsForBlogId = {}
+  let blog = {}
 
   switch (action.type) {
 
@@ -47,18 +48,29 @@ export default (state = INITIAL_STATE, action) => {
     case actions.GET_BLOG:
       //  for now, this consists of retrieving the blog blogPosts for the blog in question and adding them to state
 
+      blog = blogData.getBlogFromLocalStorage(action.payload.blogId)
       postsForBlogId = blogData.getBlogPostsFromLocalStorage()[action.payload.blogId]
 
       return {
         ...state,
         [action.payload.blogId]: Object.assign({}, state[action.payload.blogId], {
-          blogPosts: postsForBlogId
+          blogPosts: postsForBlogId,
+          name: blog.name,
+          description: blog.description
         })
       }
 
     case actions.GET_BLOGS:
       //const blogEntryData = JSON.parse(window.localStorage.getItem('blogEntries'))
       //console.log('window.localStorage.blogEntries', blogEntryData)
+      return state
+
+
+    case actions.UPDATE_BLOG:
+
+      blogData.saveBlogToLocalStorage(action.payload.blogId, action.payload)
+
+      //  save blog only to local storage ... but don't bother updating redux state, since it'll be re-fetched anyway the next time the user views the blog
       return state
 
     default:
