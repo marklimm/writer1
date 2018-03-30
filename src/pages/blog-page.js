@@ -70,6 +70,13 @@ class BlogPage extends Component {
 
     return (
       <div>
+
+        <Link to={`/blog/${blog.blogId}/settings`}>
+          <i className="float-right fas fa-cog fa-2x" title="Blog Settings"></i>
+        </Link>
+
+
+
         <h1 className="display-4">{blog.name}</h1>
         <p className="lead"><em>{blog.description}</em></p>
 

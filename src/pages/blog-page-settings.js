@@ -22,6 +22,7 @@ class BlogPageSettings extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.backClicked = this.backClicked.bind(this);
   }
 
   componentWillMount(){
@@ -48,6 +49,15 @@ class BlogPageSettings extends Component {
     //})
 
     event.preventDefault();
+  }
+
+  backClicked(event) {
+
+    this.setState({
+      redirectBackToBlog: true
+    })
+
+    event.preventDefault()
   }
 
   render() {
@@ -86,7 +96,14 @@ class BlogPageSettings extends Component {
           </div>
 
 
-          <input type="submit" value="Submit" />
+          <button
+            type="submit"
+            className="btn btn-outline-primary ">Submit</button>
+          <button
+            type="button"
+            className="btn btn-outline-secondary float-right"
+            onClick={this.backClicked}>Back</button>
+
         </form>
       </div>
     )
