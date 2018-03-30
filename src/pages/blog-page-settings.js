@@ -15,12 +15,18 @@ class BlogPageSettings extends Component {
 
   constructor(props) {
     super(props);
+
+    const blog = this.props.blog[this.props.match.params.blogId]
+
     this.state = {
+      blogId: blog.blogId,
+      description: blog.description,
+      name: blog.name,
       redirectBackToBlog: false
     }
 
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.backClicked = this.backClicked.bind(this);
   }
@@ -31,12 +37,12 @@ class BlogPageSettings extends Component {
   }
 
 
-  handleTitleChange(event) {
-    this.setState({title: event.target.value});
+  handleNameChange(event) {
+    this.setState({name: event.target.value});
   }
 
-  handleTextChange(event) {
-    this.setState({text: event.target.value});
+  handleDescriptionChange(event) {
+    this.setState({description: event.target.value});
   }
 
   handleSubmit(event) {
@@ -62,36 +68,37 @@ class BlogPageSettings extends Component {
 
   render() {
 
-    const blog = this.props.blog[this.props.match.params.blogId]
+    //const blog = this.props.blog[this.props.match.params.blogId]
 
     if (this.state.redirectBackToBlog) {
-      return <Redirect to={`/blog/${blog.blogId}`} />
+      return <Redirect to={`/blog/${this.state.blogId}`} />
     }
 
     return (
       <div>
-        <h1 className="display-5">Settings page for: {blog.name}</h1>
+        <h1 className="display-5">Settings page for: {this.state.name}</h1>
 
         <form onSubmit={this.handleSubmit}>
 
           <div className="form-group">
-            <label>Title</label>
+            <label>Name</label>
             <input type="text"
-                   value={this.state.title}
-                   onChange={this.handleTitleChange}
+                   value={this.state.name}
+                   onChange={this.handleNameChange}
                    className="form-control"
-                   placeholder="ex. Blog Post Title"
+                   placeholder="ex. The name of the blog"
                    ref={(input) => { this.txtTitleInput = input; }}
               />
           </div>
 
           <div className="form-group">
-            <textarea
-              value={this.state.text}
-              onChange={this.handleTextChange}
-              rows='10'
-              cols='90'
-              placeholder="New blog post here..."
+            <label>Description</label>
+            <input type="text"
+                   value={this.state.description}
+                   onChange={this.handleDescriptionChange}
+                   className="form-control"
+                   placeholder="ex. A description of the blog"
+                   ref={(input) => { this.txtTitleInput = input; }}
               />
           </div>
 
